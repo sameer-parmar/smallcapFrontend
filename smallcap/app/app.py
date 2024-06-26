@@ -34,9 +34,9 @@ def upload_file():
 def get_confirmation(confirmation_id):
     # In a real app, fetch confirmation status from a database
     if confirmation_id == "12345":
-        return jsonify({"status": "success", "message": "Your CV has been processed.", "nextSteps": "Check your email for further instructions."})
+        return render_template('confirmation.html')
     else:
-        return jsonify({"status": "error", "message": "Invalid confirmation ID"}), 404
+        return render_template('refusal.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
